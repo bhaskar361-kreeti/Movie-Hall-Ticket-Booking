@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "name": "Inception",
+    "rating": "UA",
+    "genre": "Sci-Fi",
+    "format": "2D",
+    "posterUrl": "https://m.media-amazon.com/images/I/51sBr4IWDwL._AC_.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Avengers: Endgame",
+    "rating": "U",
+    "genre": "Action",
+    "format": "3D",
+    "posterUrl": "https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SL1500_.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Interstellar",
+    "rating": "UA",
+    "genre": "Adventure",
+    "format": "2D",
+    "posterUrl": "https://m.media-amazon.com/images/I/91kFYg4fX3L._SL1500_.jpg"
+  },
+  {
+    "id": "4",
+    "name": "The Dark Knight",
+    "rating": "UA",
+    "genre": "Action",
+    "format": "2D",
+    "posterUrl": "https://m.media-amazon.com/images/I/51AJHj-IWjL._AC_.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Titanic",
+    "rating": "U",
+    "genre": "Romance/Drama",
+    "format": "2D",
+    "posterUrl": "https://m.media-amazon.com/images/I/71rNJQ2g-LL._AC_SL1181_.jpg"
+  },
+  {
+    "id": "6",
+    "name": "The Lion King",
+    "rating": "U",
+    "genre": "Animation",
+    "format": "2D",
+    "posterUrl": "https://m.media-amazon.com/images/I/71d0ZRa1QWL._AC_SL1181_.jpg"
+  },
+  {
+    "id": "7",
+    "name": "Avatar",
+    "rating": "UA",
+    "genre": "Sci-Fi",
+    "format": "3D",
+    "posterUrl": "https://m.media-amazon.com/images/I/41vu+Z4WQtL._AC_.jpg"
+  },
+  {
+    "id": "8",
+    "name": "Joker",
+    "rating": "A",
+    "genre": "Drama/Thriller",
+    "format": "2D",
+    "posterUrl": "https://m.media-amazon.com/images/I/71J0Zg6G9WL._AC_SL1178_.jpg"
+  },
+  {
+    "id": "9",
+    "name": "Frozen II",
+    "rating": "U",
+    "genre": "Animation/Fantasy",
+    "format": "3D",
+    "posterUrl": "https://m.media-amazon.com/images/I/81R7Z+z8FYL._AC_SL1500_.jpg"
+  },
+  {
+    "id": "10",
+    "name": "Spider-Man: No Way Home",
+    "rating": "UA",
+    "genre": "Action/Sci-Fi",
+    "format": "3D",
+    "posterUrl": "https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SL1500_.jpg"
+  }
+]
