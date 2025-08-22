@@ -8,10 +8,10 @@ function App() {
 
   return (
     <>
-    <div className='bg-black p-10'>
+    <div className='allPath bg-black h-full w-full '>
       <Routes>
         <Route path='/' element={<MovieList/>} />
-        <Route path='/movie' element={<MovieDetails/>} />
+        <Route path='/movie/:id' element={<MovieDetails/>} />
 
       </Routes>
     </div>
