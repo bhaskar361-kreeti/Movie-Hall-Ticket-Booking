@@ -27,7 +27,7 @@ const MovieList = () => {
             <h2 className="font-bold text-white text-lg">{movie.name}</h2>
             <p className='text-gray-400 text-md font-bold'>{movie.genre}</p>
             <Link to={`./movie/${movie.id}`}>
-              <Button url={movie.posterUrl} name={movie.name} rating={movie.rating} genre={movie.genre} format={movie.format}/>
+              <Button/>
             </Link>
           </div>
         ))}
