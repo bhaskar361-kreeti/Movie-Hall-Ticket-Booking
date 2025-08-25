@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import MovieList from './Components/MovieList'
 import MovieDetails from './Components/MovieDetails'
 import ShowTime from './Components/ShowTime'
+import BookSeat from './Components/BookSeat'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<MovieList/>} />
         <Route path='/movie/:id' element={<MovieDetails/>} />
         <Route path='/movie/:id/showTime' element={<ShowTime/>} />
+        <Route path='/movie/:id/showTime/BookSeat' element={<BookSeat/>} />
       </Routes>
     </div>
     </>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
 const ShowTime = () => {
@@ -29,17 +29,21 @@ const ShowTime = () => {
     <div className='w-full min-h-screen text-2xl flex justify-center items-center flex-col'>
       <h1 className="text-3xl font-bold m-6 text-center">Choose Theater & Show Time</h1>
       <div className='w-4/5 flex justify-evenly items-center '>
-        <img src={showBanner} alt=""  className='w-1/4 h-[500px]'/>
+        <img src={showBanner} alt="" className='w-1/4 h-[500px]' />
         {showTimes.map((theater, index) => (
           <div key={index} className=" p-6 rounded-xl shadow-md  gap-4 flex flex-col">
             <h2 className='text-center'>{theater.name}</h2>
             {theater.slots.map((slot, i) => (
-              <button
-                key={i}
-                className="px-4 py-2 bg-gray-400 rounded-lg hover:bg-gray-700 hover:text-white cursor-pointer"
-              >
-                {slot}
-              </button>
+              <Link to={`./BookSeat`}
+              state={{theater:theater.name, slot}}>
+                <button 
+                  key={i}
+                  className=" w-[140px] text-[18px] py-3 bg-gray-200 border-green-400 border-l-10 border-3 text-black rounded cursor-pointer"
+                >
+                  {slot}
+                </button>
+              </Link>
+
             ))}
           </div>
         ))}
