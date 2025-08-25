@@ -25,13 +25,13 @@ const MovieDetails = () => {
       <div className='w-1/2 h-full flex justify-center items-center flex-col space-y-4'>
         <h1 className="text-5xl font-bold mt-6">{movieDetail.name}</h1>
         <div className='w-full flex justify-center items-center gap-x-2'>
-          <p className="text-gray-400 text-lg mt-2">{movieDetail.genre}</p>
-          <p className="text-gray-400 mt-2">Rating: {movieDetail.rating}</p>
-          <p className="text-gray-400 mt-2">Format: {movieDetail.format}</p>
+          <p className="text-gray-300 text-lg mt-2">{movieDetail.genre}</p>
+          <p className="text-gray-300 mt-2">Rating: {movieDetail.rating}</p>
+          <p className="text-gray-300 mt-2">Format: {movieDetail.format}</p>
         </div>
-        <div className='flex justify-center items-center '><p className='text-gray-400 mt-2 text-center'>{movieDetail.desc}</p></div>
-        <Link to={`./showTime`}>
-          <button className='w-full cursor-pointer px-10 py-4 bg-pink-500 text-gray-200 font-bold rounded hover '>Book Seats</button>
+        <div className='flex justify-center items-center'><p className='text-gray-300 mt-2 text-center'>{movieDetail.desc}</p></div>
+        <Link to={`./showTime`} className='w-full'>
+          <button className='w-full cursor-pointer px-10 py-4 bg-blue-600 text-gray-200 font-bold rounded hover '>Book Seats</button>
         </Link>
       </div>
     </div>
