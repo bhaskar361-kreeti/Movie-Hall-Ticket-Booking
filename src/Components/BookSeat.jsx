@@ -1,13 +1,26 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
+import Button from './Button';
 
 
 const BookSeat = () => {
 
+  const [selectedSeats, setSelectedSeats] = useState([])
+  const [countSeat, setCountSeat] = useState(0)
+
+  const handleSeatClick = (seat) => {
+    if (selectedSeats.includes(seat)) {
+      setSelectedSeats(selectedSeats.filter((s) => (s !== seat))) // if seat is already selected remove it from the array
+    }
+    else {
+      setSelectedSeats([...selectedSeats, seat]) // if not selected add it
+      setCountSeat(countSeat + 1)
+    }
+  }
+
   const { state } = useLocation();
   const seats = Array.from({ length: 60 }, (_, i) => i + 1)
   console.log(seats);
-
 
   return (
     <div className='w-full min-h-screen flex flex-col space-y-6 justify-center items-center '>
@@ -16,10 +29,17 @@ const BookSeat = () => {
         <h2 className='font-bold text-3xl'>Time:- {state.slot}</h2>
       </div>
       <h2 className='text-xl text-gray-300'>Select your seat</h2>
-      <div className='w-1/2 grid grid-cols-10  '>
+      <div className='w-1/2 grid grid-cols-10'>
         {seats.map((seat) => (
-          <button className='w-10 py-2 m-2 border-pink-200 rounded border-l-6 border-2 cursor-pointer bg-gray-200 text-black hover:bg-green-600 hover:text-white'>{seat}</button>
+          <button key={seat}
+            onClick={() => handleSeatClick(seat)}
+            className={`${selectedSeats.includes(seat) ? "bg-green-600 text-white" : "bg-gray-200 text-black hover:bg-green-400"}
+           w-10 py-2 m-2 border-pink-200 rounded border-l-6 border-2 cursor-pointer bg-gray-200 text-black hover:bg-green-600 hover:text-white`}>{seat}</button>
         ))}
+      </div>
+      <div className='w-2/5 flex flex-col justify-center items-center gap-y-4  '>
+        <p className='text-md font-semibold'>You selected: {countSeat} seats</p>
+        <button className='w-full cursor-pointer py-4 bg-gray-300 text-black  rounded font-bold'>Proceed</button>
       </div>
     </div>
   )

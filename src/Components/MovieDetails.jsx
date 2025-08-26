@@ -23,7 +23,7 @@ const MovieDetails = () => {
     <div className=' min-h-screen w-3/5 flex  p-10 justify-evenly items-center '>
       <img className='h-[400px]' src={movieDetail.posterUrl} alt="#" />
       <div className='w-1/2 h-full flex justify-center items-center flex-col space-y-4'>
-        <h1 className="text-5xl font-bold mt-6">{movieDetail.name}</h1>
+        <h1 className="text-4xl font-bold mt-6">{movieDetail.name}</h1>
         <div className='w-full flex justify-center items-center gap-x-2'>
           <p className="text-gray-300 text-lg mt-2">{movieDetail.genre}</p>
           <p className="text-gray-300 mt-2">Rating: {movieDetail.rating}</p>

@@ -19,7 +19,17 @@ const MovieList = () => {
 
   return (
     <div className='flex justify-center flex-col items-center w-full p-10'>
-      <h1 className='font-bold text-2xl '>Recommended Movies</h1>
+      <div className='w-full  flex justify-between items-center'>
+        <h1 className='font-bold text-4xl '>Recommended Movies</h1>
+        <div className='w-1/4 flex justify-center items-center gap-x-4 '>
+          <Link to={'./login'} className='px-6 rounded-xl py-3 font-bold bg-gray-200 text-black hover:bg-orange-300 cursor-pointer'>
+            Login
+          </Link>
+          <Link to={'./signUp'} className='px-6 rounded-xl py-3 font-bold bg-gray-200 text-black hover:bg-orange-300 cursor-pointer'>
+            SignUp
+          </Link>
+        </div>
+      </div>
       <div className='all-movies w-full p-10 grid grid-cols-4 gap-4'>
         {movies.map((movie, index) => (
           <div key={index} className="p-4  flex justify-evenly items-center flex-col rounded">
@@ -27,7 +37,7 @@ const MovieList = () => {
             <h2 className="font-bold text-white text-lg">{movie.name}</h2>
             <p className='text-gray-400 text-md font-bold'>{movie.genre}</p>
             <Link to={`./movie/${movie.id}`}>
-              <Button/>
+              <Button />
             </Link>
           </div>
         ))}
