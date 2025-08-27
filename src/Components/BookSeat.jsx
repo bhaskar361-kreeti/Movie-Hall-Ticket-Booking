@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
+
 
 
 const BookSeat = () => {
@@ -18,7 +19,7 @@ const BookSeat = () => {
     }
   }
 
-  const { state } = useLocation();
+  const { state } = useLocation(); //accesing theater name and slot
   const seats = Array.from({ length: 60 }, (_, i) => i + 1)
   console.log(seats);
 
@@ -39,7 +40,13 @@ const BookSeat = () => {
       </div>
       <div className='w-2/5 flex flex-col justify-center items-center gap-y-4  '>
         <p className='text-md font-semibold'>You selected: {countSeat} seats</p>
-        <button className='w-full cursor-pointer py-4 bg-gray-300 text-black  rounded font-bold'>Proceed</button>
+        <Link
+          to="/Payment"
+          state={{ theater: state.theater, slot: state.slot, seats: selectedSeats, url }}
+          className="w-full cursor-pointer py-4 bg-gray-300 text-black rounded font-bold text-center block"
+        >
+          Proceed
+        </Link>
       </div>
     </div>
   )
