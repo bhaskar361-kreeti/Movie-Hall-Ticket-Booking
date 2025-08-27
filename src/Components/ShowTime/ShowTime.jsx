@@ -8,6 +8,8 @@ const ShowTime = () => {
   const [showBanner, setShowBanner] = useState()
 
   const { id } = useParams()
+  console.log(id);
+  
   useEffect(() => {
     fetch('/Movies.json')
       .then((res) => res.json())
@@ -35,7 +37,7 @@ const ShowTime = () => {
             <h2 className='text-center'>{theater.name}</h2>
             {theater.slots.map((slot, i) => (
               <Link to={`./BookSeat`}
-                state={{ theater: theater.name, slot, url: theater.posterUrl }}> 
+                state={{ theater: theater.name, slot, url: showBanner }}> 
                 <button
                   key={i}
                   className=" w-[140px] text-[18px] py-3 bg-gray-200 border-green-400 border-l-10 border-3 text-black rounded cursor-pointer"

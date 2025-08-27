@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import Button from './Button';
+import Button from "../Button/Button";
+
 
 const MovieList = () => {
 
@@ -37,7 +38,7 @@ const MovieList = () => {
             <h2 className="font-bold text-white text-lg">{movie.name}</h2>
             <p className='text-gray-400 text-md font-bold'>{movie.genre}</p>
             <Link to={`./movie/${movie.id}`}>
-              <Button />
+              <Button/>
             </Link>
           </div>
         ))}
