@@ -6,7 +6,9 @@ const Header = () => {
         <h1 className="font-bold text-4xl ">Recommended Movies</h1>
         <div className="w-1/4 flex justify-center items-center gap-x-4 ">
           <LInk>Login</LInk>
-          <LInk>SignUp</LInk>
+          <LInk to='./SignUp'
+          className='py-2 px-4 text-black font-bold'
+          >SignUp</LInk>
         </div>
       </div>
   )

@@ -1,8 +1,20 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 
 const Confirmation = () => {
+
+  const navigate = useNavigate()
+  const isLoggedIn = localStorage.getItem('user')?true:false
+  
+  const checkConfirmation = ()=>{
+    if(isLoggedIn){
+      navigate('./Payment', state)
+    }
+    else{
+      navigate('./SignUp')
+    }
+  }
 
   const { state } = useLocation()
   return (
@@ -14,11 +26,10 @@ const Confirmation = () => {
         <h2 className='font-semibold text-xl text-gray-400'>Slot : {state.slot}</h2>
         <p className='font-semibold text-xl text-gray-400'>Seat No : {state.seats.join(', ')}</p>
         <p className='font-semibold text-xl text-gray-400'>Total no of Seat : {state.totalNoOfSeat}</p>
-        <Link to={'./Payment'} 
+        <button onClick={checkConfirmation}
         className='w-1/2 rounded py-4 font-bold bg-gray-200 hover:bg-green-400 text-center text-black'>
           Pay & Generate Ticket
-        </Link>
-
+        </button>
       </div>
     </div>
   )

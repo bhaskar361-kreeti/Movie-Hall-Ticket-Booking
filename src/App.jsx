@@ -6,6 +6,8 @@ import ShowTime from "./Components/ShowTime/ShowTime";
 import BookSeat from "./Components/BookSeat/BookSeat";
 import Confirmation from "./Components/Confirmation/Confirmation";
 import Payment from "./Components/Payment/Payment";
+import SignUp from "./Components/signup/SignUp";
+import Login from "./Components/login/Login";
 
 function App() {
   return (
@@ -17,6 +19,10 @@ function App() {
         <Route path="/movie/:id/showTime/BookSeat" element={<BookSeat />} />
         <Route path="/Confirmation" element={<Confirmation />} />
         <Route path="/Confirmation/Payment" element={<Payment />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Login" element={<Login />} />
+
+
       </Routes>
     </div>
   );
