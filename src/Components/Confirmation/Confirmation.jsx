@@ -5,14 +5,17 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 const Confirmation = () => {
 
   const navigate = useNavigate()
-  const isLoggedIn = localStorage.getItem('user')?true:false
+  const user = JSON.parse(localStorage.getItem("user"))
+  console.log(user);
+  
+  const isLoggedIn = !!user
   
   const checkConfirmation = ()=>{
     if(isLoggedIn){
-      navigate('./Payment', state)
+      navigate('./Payment')
     }
     else{
-      navigate('./SignUp')
+      navigate('/SignUp')
     }
   }
 

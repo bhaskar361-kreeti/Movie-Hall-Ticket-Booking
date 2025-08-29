@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
 import Movie from "../Components/Movies/Movie";
-import Header from "./Header";
+import Header from "../Components/Header/Header";
 
 const Home = () => {
   return (
-    <div className="flex justify-center flex-col items-center w-full p-10">
+    <div className="flex justify-center items-center flex-col w-full">
       <Header />
-      <Movie />
+      <div className="p-10">
+        <Movie />
+      </div>
     </div>
   );
 };
+
 
 export default Home;

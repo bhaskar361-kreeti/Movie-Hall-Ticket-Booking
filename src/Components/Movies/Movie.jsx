@@ -12,20 +12,20 @@ const MovieList = () => {
       .then((res) => res.json())
       .then((data) => {
         setMovies(data)
-        console.log(data);
+        // console.log(data);
       })
       .catch((err) => console.log(err)
       )
   }, [])
   return (
-    <div className="all-movies w-full p-10 grid grid-cols-4 gap-4">
+    <div className="all-movies w-full p-4 grid grid-cols-6 gap-4">
       {movies.map((movie, index) => (
         <div
           key={index}
-          className="p-4  flex justify-evenly items-center flex-col rounded"
+          className="p-4  flex justify-evenly items-center flex-col rounded-xl"
         >
           <img
-            className="w-7/10 h-7/10 rounded transform transition duration-500 hover:scale-105 hover:shadow-xl"
+            className="w-4/5 h-7/10 rounded transform transition duration-500 hover:scale-105 hover:shadow-xl"
             src={movie.posterUrl}
             alt=""
           />
