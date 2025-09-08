@@ -5,12 +5,9 @@ const Home = () => {
   return (
     <div className="flex justify-center items-center flex-col w-full">
       <Header />
-      <div className="p-10">
-        <Movie />
-      </div>
+      <Movie />
     </div>
   );
 };
-
 
 export default Home;

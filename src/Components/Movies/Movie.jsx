@@ -2,23 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 
-
-
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch('/Movies.json')
+    fetch("/Movies.json")
       .then((res) => res.json())
       .then((data) => {
-        setMovies(data)
+        setMovies(data);
         // console.log(data);
       })
-      .catch((err) => console.log(err)
-      )
-  }, [])
+      .catch((err) => console.log(err));
+  }, []);
   return (
-    <div className="all-movies w-full p-4 grid grid-cols-6 gap-4">
+    <div className="all-movies w-full p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
       {movies.map((movie, index) => (
         <div
           key={index}

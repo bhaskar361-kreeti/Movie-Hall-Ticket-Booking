@@ -12,8 +12,10 @@ import GenerateTicket from "./Components/generateTicket/GenerateTicket";
 
 function App() {
   return (
-    <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-      from-gray-800 via-black to-gray-900 text-white min-h-screen w-full flex justify-center items-center">
+    <div
+      className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+      from-gray-800 via-black to-gray-900 text-white min-h-screen w-full"
+    >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
@@ -23,14 +25,13 @@ function App() {
         <Route path="/Confirmation/Payment" element={<Payment />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/Confirmation/Payment/ticket" element={<GenerateTicket />} />
+        <Route
+          path="/Confirmation/Payment/ticket"
+          element={<GenerateTicket />}
+        />
       </Routes>
     </div>
   );
 }
 
-
 export default App;
-
-
-
