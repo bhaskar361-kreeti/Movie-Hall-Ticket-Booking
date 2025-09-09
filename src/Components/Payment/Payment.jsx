@@ -1,28 +1,39 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Payment = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
   const [name, setName] = useState("");
+  const { state } = useLocation();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handlePayment = (e) => {
     e.preventDefault();
     // 🚨 This is just dummy
     alert("Payment Successful 💳✅");
-    navigate('./ticket')
+    navigate("./ticket", {
+      state: {
+        theater: state.theater,
+        slot: state.slot,
+        seats: state.seat,
+        posterUrl: state.posterUrl,
+        totalNoOfSeat: state.totalNoOfSeat,
+      },
+    });
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br">
       <form
         onSubmit={handlePayment}
-        className="w-96 bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl shadow-xl space-y-6 border border-gray-700"
+        className="w-75 sm:w-80 md:w-96 bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl shadow-xl space-y-6 border border-gray-700"
       >
-        <h2 className="text-2xl font-bold text-center text-white">Payment Portal</h2>
+        <h2 className="text-2xl font-bold text-center text-white">
+          Payment Portal
+        </h2>
         <p className="text-gray-400 text-center text-sm">Secure checkout 🔒</p>
 
         <div className="flex flex-col space-y-2">
@@ -52,8 +63,8 @@ const Payment = () => {
           />
         </div>
 
-        <div className="flex space-x-4">
-          <div className="flex flex-col w-1/2 space-y-2">
+        <div className="flex space-x-11 md:space-x-15">
+          <div className="flex flex-col w-2/5 space-y-2">
             <label className="text-sm text-gray-300">Expiry</label>
             <input
               type="text"
@@ -67,7 +78,7 @@ const Payment = () => {
             />
           </div>
 
-          <div className="flex flex-col w-1/2 space-y-2">
+          <div className="flex flex-col w-2/5 space-y-2">
             <label className="text-sm text-gray-300">CVV</label>
             <input
               type="password"

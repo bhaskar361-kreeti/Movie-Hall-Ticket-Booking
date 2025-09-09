@@ -1,9 +1,6 @@
-import React from 'react'
+import React from "react";
 
 const GenerateTicket = () => {
-  return (
-    <div>GenerateTicket</div>
-  )
-}
-
-export default GenerateTicket
+  return <div></div>;
+};
+export default GenerateTicket;

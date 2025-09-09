@@ -33,7 +33,7 @@ const ShowTime = () => {
           alt=""
           className="sm:w-1/2 md:w-1/4 lg:w-1/5 h-[200px] sm:h-[300px] md:h-[300px] lg:h-[350px]"
         />
-        <div className="md:w-3/5 lg:w-3/5  flex justify-evenly items-center">
+        <div className="W-4/5 sm:w-2/5 md:w-3/5 lg:w-3/5  flex justify-evenly items-center ">
           {showTimes.map((theater, index) => (
             <div
               key={index}
@@ -45,7 +45,7 @@ const ShowTime = () => {
                   to={`./BookSeat`}
                   state={{ theater: theater.name, slot, url: showBanner }}
                   key={i}
-                  className="w-[80px] md:w-[110px] lg:w-[140px] text-[10px] md:text-[14px] lg:text-[18px] py-3 text-center bg-gray-200 border-green-400 border-l-10 border-3 text-black rounded cursor-pointer"
+                  className="w-[70px] md:w-[110px] lg:w-[140px] text-[10px] md:text-[14px] lg:text-[18px] py-2 md:py-3 text-center bg-gray-200 border-green-400 border-l-10 border-3 text-black rounded cursor-pointer"
                 >
                   {slot}
                 </Link>
