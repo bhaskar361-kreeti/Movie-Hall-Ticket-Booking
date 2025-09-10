@@ -5,11 +5,16 @@ const SignUp = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [contact, setContact] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //save data in localstorage
-    localStorage.setItem("user", JSON.stringify({ email, password }));
+    const storedUsers = JSON.parse(localStorage.getItem("user")) || [];
+    storedUsers.push({ email, password, firstName, lastName, contact });
+    localStorage.setItem("user", JSON.stringify(storedUsers));
     alert("Signup Successful✅");
     navigate("/Login");
   };
@@ -18,7 +23,7 @@ const SignUp = () => {
     <div className="w-full h-screen flex justify-center items-center">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col w-70 md:w-96 bg-gradient-to-b from-gray-800 to-gray-900 
+        className="flex flex-col w-70 md:w-120 bg-gradient-to-b from-gray-800 to-gray-900 
              p-8 rounded-2xl shadow-lg space-y-6 border border-gray-700"
       >
         <h2 className="text-xl md:text-3xl font-extrabold text-center text-white">
@@ -27,6 +32,34 @@ const SignUp = () => {
         <p className="text-gray-400 text-center text-sm">
           Sign up to book your favorite movies 🎬
         </p>
+
+        <input
+          type="text"
+          placeholder="Enter your first name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          className="p-2 md:p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 
+               border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Enter your last name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          className="p-2 md:p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 
+               border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Enter your contact no"
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          className="p-2 md:p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 
+               border border-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          required
+        />
 
         <input
           type="email"

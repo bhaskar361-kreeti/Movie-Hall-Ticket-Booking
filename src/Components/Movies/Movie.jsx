@@ -26,7 +26,9 @@ const MovieList = () => {
             src={movie.posterUrl}
             alt=""
           />
-          <h2 className="font-bold text-white text-lg">{movie.name}</h2>
+          <h2 className="font-bold text-white md:text-sm lg:text-lg">
+            {movie.name}
+          </h2>
           <p className="text-gray-400 text-md font-bold">{movie.genre}</p>
           <Link to={`./movie/${movie.id}`}>
             <Button />

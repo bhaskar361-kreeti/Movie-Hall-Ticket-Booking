@@ -12,10 +12,7 @@ import GenerateTicket from "./Components/generateTicket/GenerateTicket";
 
 function App() {
   return (
-    <div
-      className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-      from-gray-800 via-black to-gray-900 text-white min-h-screen w-full"
-    >
+    <div className="text-white min-h-screen w-full">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetails />} />

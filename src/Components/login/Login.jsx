@@ -8,9 +8,25 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // TODO: replace with actual auth logic
-    console.log("Logging in with:", email, password);
-    navigate("/"); // redirect to homepage after login
+    const storedUser = JSON.parse(localStorage.getItem("user")) || [];
+    if (storedUser.length === 0) {
+      alert("⚠️ No users found. Please sign up first.");
+      navigate("/SignUp");
+    }
+    const matchedUser = storedUser.find(
+      (u) => u.email === email && u.password === password
+    );
+
+    if (matchedUser) {
+      console.log("Logging in with:", email, password);
+      alert("Login Successful 💳✅");
+      navigate("/");
+    } else {
+      alert("⚠️ No users found. Please sign up first.");
+      navigate("/SignUp");
+    }
+
+    // redirect to homepage after login
   };
 
   return (
