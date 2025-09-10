@@ -18,7 +18,7 @@ const Payment = () => {
       state: {
         theater: state.theater,
         slot: state.slot,
-        seats: state.seat,
+        seats: state.seats,
         posterUrl: state.posterUrl,
         totalNoOfSeat: state.totalNoOfSeat,
       },
