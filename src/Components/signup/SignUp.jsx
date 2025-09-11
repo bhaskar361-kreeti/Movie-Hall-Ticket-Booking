@@ -9,20 +9,25 @@ const SignUp = () => {
   const [lastName, setLastName] = useState("");
   const [contact, setContact] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     //save data in localstorage
     const storedUsers = JSON.parse(localStorage.getItem("user")) || [];
+    //check if user with same email already exist
+    if (storedUsers.find((u) => u.email === email)) {
+      alert("User already exists with the same email!");
+      return;
+    }
     storedUsers.push({ email, password, firstName, lastName, contact });
     localStorage.setItem("user", JSON.stringify(storedUsers));
-    alert("Signup Successful✅");
+    alert("Signup Successful✅ Please login");
     navigate("/Login");
   };
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSignUp}
         className="flex flex-col w-70 md:w-120 bg-gradient-to-b from-gray-800 to-gray-900 
              p-8 rounded-2xl shadow-lg space-y-6 border border-gray-700"
       >

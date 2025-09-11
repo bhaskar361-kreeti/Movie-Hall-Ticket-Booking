@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 const Header = () => {
   const [search, setSearch] = useState("");
   const [moives, setMovies] = useState([]);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
   const handleSignUp = () => {
     navigate("/SignUp");
   };
@@ -15,6 +17,8 @@ const Header = () => {
   };
 
   useEffect(() => {
+    const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    setUser(currentUser);
     fetch("/Movies.json")
       .then((res) => res.json())
       .then((data) => {
@@ -34,8 +38,14 @@ const Header = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("loggedInUser");
+    setUser(null);
+    navigate("/login");
+  };
+
   return (
-    <div className="w-full m-2 p-6 flex justify-between items-center">
+    <div className="w-full m-3 p-6 flex justify-between items-center">
       <div className="w-1/10 flex  flex-col-reverse md:flex-row justify-evenly items-center">
         <motion.img
           src="src/assets/logo.png"
@@ -64,22 +74,35 @@ const Header = () => {
         </button>
       </div>
 
-      <div className="w-1/6 flex justify-center flex-col gap-y-4 sm:flex-col md:flex-row items-center gap-x-4">
-        <button
-          className="rounded w-16 sm:w-24 md:w-32 text-[10px] md:text-lg transform transition duration-500 hover:scale-105 hover:shadow-xl
-           sm:py-1 md:py-2 lg:py-3  bg-gray-300 text-black cursor-pointer font-semibold"
-          onClick={handleLogin}
-        >
-          Login
-        </button>
-        <button
-          className="rounded w-16 sm:w-24 md:w-32 text-[10px] text-sm  md:text-lg  transform transition duration-500 hover:scale-105 hover:shadow-xl
-           sm:py-1 md:py-2 lg:py-3  bg-gray-300 text-black cursor-pointer font-semibold"
-          onClick={handleSignUp}
-        >
-          SignUp
-        </button>
-      </div>
+      {!user ? (
+        <div className="w-1/6 flex justify-center flex-col gap-y-4 sm:flex-col md:flex-row items-center gap-x-4">
+          <button
+            className="rounded w-16 sm:w-24 md:w-32 text-[10px] md:text-lg transform transition duration-500 hover:scale-105 hover:shadow-xl
+           sm:py-1 md:py-1 md:px-4 lg:py-3  bg-gray-300 text-black cursor-pointer font-semibold"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+          <button
+            className="rounded w-16 sm:w-24 md:w-32 text-[10px] text-sm  md:text-lg  transform transition duration-500 hover:scale-105 hover:shadow-xl
+           sm:py-1 md:py-1 md:px-4 lg:py-3  bg-gray-300 text-black cursor-pointer font-semibold"
+            onClick={handleSignUp}
+          >
+            SignUp
+          </button>
+        </div>
+      ) : (
+        <div className="w-1/6 flex justify-center flex-col gap-y-4 sm:flex-col md:flex-row items-center gap-x-4">
+          <span className="font-bold">👤 {user.firstName}</span>
+          <button
+            className="rounded w-16 sm:w-24 md:w-32 text-[10px] text-sm  md:text-lg  transform transition duration-500 hover:scale-105 hover:shadow-xl
+           sm:py-1 md:py-1 md:px-4 lg:py-3  bg-gray-300 text-black cursor-pointer font-semibold"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </div>
+      )}
     </div>
   );
 };

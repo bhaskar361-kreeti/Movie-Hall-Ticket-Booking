@@ -18,15 +18,14 @@ const Login = () => {
     );
 
     if (matchedUser) {
-      console.log("Logging in with:", email, password);
+      // console.log("Logging in with:", email, password);
       alert("Login Successful 💳✅");
+      localStorage.setItem("loggedInUser", JSON.stringify(matchedUser)); //storing the current loggedin user in differntly in LS
       navigate("/");
     } else {
       alert("⚠️ No users found. Please sign up first.");
       navigate("/SignUp");
     }
-
-    // redirect to homepage after login
   };
 
   return (

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Confirmation = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
   console.log(user);
 
   const isLoggedIn = !!user;
