@@ -28,8 +28,8 @@ const Header = () => {
   }, []);
 
   const handleSearch = (searchedMovie) => {
-    const foundMovie = moives.find(
-      (m) => m?.name.toLowerCase() === searchedMovie.toLowerCase()
+    const foundMovie = moives.find((m) =>
+      m?.name.toLowerCase().includes(searchedMovie.toLowerCase())
     );
     if (foundMovie) {
       navigate(`./movie/${foundMovie.id}`);
@@ -93,7 +93,7 @@ const Header = () => {
         </div>
       ) : (
         <div className="w-1/6 flex justify-center flex-col gap-y-4 sm:flex-col md:flex-row items-center gap-x-4">
-          <span className="font-bold">👤 {user.firstName}</span>
+          <span className="font-bold text-center">👤 {user.firstName}</span>
           <button
             className="rounded w-16 sm:w-24 md:w-32 text-[10px] text-sm  md:text-lg  transform transition duration-500 hover:scale-105 hover:shadow-xl
            sm:py-1 md:py-1 md:px-4 lg:py-3  bg-gray-300 text-black cursor-pointer font-semibold"

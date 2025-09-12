@@ -9,6 +9,7 @@ import Payment from "./Components/Payment/Payment";
 import SignUp from "./Components/signup/SignUp";
 import Login from "./Components/login/Login";
 import GenerateTicket from "./Components/generateTicket/GenerateTicket";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
@@ -19,12 +20,23 @@ function App() {
         <Route path="/movie/:id/showTime" element={<ShowTime />} />
         <Route path="/movie/:id/showTime/BookSeat" element={<BookSeat />} />
         <Route path="/Confirmation" element={<Confirmation />} />
-        <Route path="/Confirmation/Payment" element={<Payment />} />
+        <Route
+          path="/Confirmation/Payment"
+          element={
+            <ProtectedRoute>
+              <Payment />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Login" element={<Login />} />
         <Route
           path="/Confirmation/Payment/ticket"
-          element={<GenerateTicket />}
+          element={
+            <ProtectedRoute>
+              <GenerateTicket />
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </div>
