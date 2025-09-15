@@ -11,6 +11,14 @@ const SignUp = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters long!");
+      return;
+    }
+    if (!/^\d{10}$/.test(contact)) {
+      alert("Contact number must be exactly 10 digits!");
+      return;
+    }
     //save data in localstorage
     const storedUsers = JSON.parse(localStorage.getItem("user")) || [];
     //check if user with same email already exist
