@@ -35,7 +35,6 @@ const Ticket = () => {
   return (
     <div className="w-full min-h-screen flex justify-center items-center px-4 py-8">
       <div className="w-1/2 flex flex-col items-center space-y-6">
-        {/* Ticket */}
         <div
           ref={ticketRef}
           className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6 space-y-5 border border-gray-300"
@@ -73,8 +72,6 @@ const Ticket = () => {
             <p>ID: #{Math.floor(Math.random() * 100000)}</p>
           </div>
         </div>
-
-        {/* Download Button */}
         <button
           onClick={handleDownload}
           className="px-6 py-2 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition"

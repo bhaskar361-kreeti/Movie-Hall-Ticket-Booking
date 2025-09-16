@@ -31,9 +31,9 @@ const Header = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (search.trim()) {
-      navigate(`/?q=${search}`); // Go to homepage with ?q=search
+      navigate(`/?q=${search}`);
     } else {
-      navigate("/"); // If search is empty, show all movies
+      navigate("/");
     }
   };
 
@@ -45,7 +45,6 @@ const Header = () => {
 
   return (
     <div className="w-full m-3 p-6 flex justify-between items-center">
-      {/* Logo */}
       <div className="w-1/10 flex flex-col-reverse md:flex-row justify-evenly items-center">
         <motion.img
           src="src/assets/logo.png"
@@ -56,7 +55,6 @@ const Header = () => {
         />
       </div>
 
-      {/* Search */}
       <form onSubmit={handleSearch} className="flex w-1/2 md:mr-6">
         <div className="flex items-center w-full bg-gray-800 px-4 py-2 md:py-2 lg:py-3 shadow-inner">
           <input
@@ -75,7 +73,6 @@ const Header = () => {
         </button>
       </form>
 
-      {/* Auth Buttons */}
       {!user ? (
         <div className="w-1/6 flex justify-center flex-col gap-y-4 sm:flex-col md:flex-row items-center gap-x-4">
           <button

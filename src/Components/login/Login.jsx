@@ -18,9 +18,8 @@ const Login = () => {
     );
 
     if (matchedUser) {
-      // console.log("Logging in with:", email, password);
       alert("Login Successful 💳✅");
-      localStorage.setItem("loggedInUser", JSON.stringify(matchedUser)); //storing the current loggedin user in differntly in LS
+      localStorage.setItem("loggedInUser", JSON.stringify(matchedUser));
       navigate("/");
     } else {
       alert("⚠️ No users found. Please sign up first.");

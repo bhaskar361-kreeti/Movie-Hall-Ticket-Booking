@@ -19,9 +19,8 @@ const SignUp = () => {
       alert("Contact number must be exactly 10 digits!");
       return;
     }
-    //save data in localstorage
+
     const storedUsers = JSON.parse(localStorage.getItem("user")) || [];
-    //check if user with same email already exist
     if (storedUsers.find((u) => u.email === email)) {
       alert("User already exists with the same email!");
       return;

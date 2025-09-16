@@ -26,16 +26,14 @@ const BookSeat = () => {
 
   const handleSeatClick = (seat) => {
     if (selectedSeats.includes(seat)) {
-      setSelectedSeats(selectedSeats.filter((s) => s !== seat)); // if seat is already selected remove it from the array
+      setSelectedSeats(selectedSeats.filter((s) => s !== seat));
     } else {
-      setSelectedSeats([...selectedSeats, seat]); // if not selected add it
+      setSelectedSeats([...selectedSeats, seat]);
       setCountSeat(countSeat + 1);
     }
   };
 
-  //accesing theater name and slot
   const seats = Array.from({ length: 60 }, (_, i) => i + 1);
-  console.log(seats);
 
   return (
     <div className="w-full min-h-screen flex flex-col space-y-6 justify-center items-center ">

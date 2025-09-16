@@ -6,18 +6,16 @@ const ShowTime = () => {
   const [showBanner, setShowBanner] = useState();
 
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     fetch("/Movies.json")
       .then((res) => res.json())
       .then((data) => {
-        let selected = data.find((m) => m.id === id); //m.id will select all the url and match with selected url
+        let selected = data.find((m) => m.id === id);
         if (selected) {
           setShowTimes(selected.theaters);
           setShowBanner(selected.posterUrl);
         }
-        console.log(selected.theaters);
       })
       .catch((err) => console.log(err));
   }, [id]);

@@ -15,11 +15,9 @@ const MovieList = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  // get ?q=searchValue from URL
   const params = new URLSearchParams(location.search);
   const query = params.get("q") || "";
 
-  // filter movies
   const filteredMovies = query
     ? movies.filter((m) => m.name.toLowerCase().includes(query.toLowerCase()))
     : movies;
