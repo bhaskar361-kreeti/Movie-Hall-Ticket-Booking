@@ -19,16 +19,19 @@ const Payment = () => {
     // Card number must be 16 digits numeric
     if (!/^\d{16}$/.test(cardNumber)) {
       alert("⚠️ Card number must be 16 digits.");
+      return;
     }
 
     // Expiry must be in MM/YY format and valid month
     if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiry)) {
       alert("⚠️ Expiry date must be in MM/YY format.");
+      return;
     }
 
     // CVV must be 3 digits numeric
     if (!/^\d{3}$/.test(cvv)) {
       alert("⚠️ CVV must be a 3-digit number.");
+      return;
     }
     // 🚨 This is just dummy
     alert("Payment Successful 💳✅");
