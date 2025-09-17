@@ -19,7 +19,14 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/movie/:id/showTime" element={<ShowTime />} />
         <Route path="/movie/:id/showTime/BookSeat" element={<BookSeat />} />
-        <Route path="/Confirmation" element={<Confirmation />} />
+        <Route
+          path="/Confirmation"
+          element={
+            <ProtectedRoute>
+              <Confirmation />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/Confirmation/Payment"
           element={
